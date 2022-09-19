@@ -24,8 +24,14 @@ describe('Flight details user flow', () => {
     cy.get('#inboundFlightList > :nth-child(2) > .pb-md-4 > app-available-journey > :nth-child(1) > .flex-grow-1 > .h-100 > .align-items-center > .flight-number').should('be.visible')
   })
 
-  it.only('Should test overview and final price', () => {
+  it('Should test overview and final price', () => {
     cy.get('.mr-1 > :nth-child(1) > .font-lg').should('have.text', 'Overview')
     cy.get('#ti-overview-guest-count').should('have.text', ' 2 GUESTS ')
+  })
+
+  it.only('Should test selecting a different flight level', () => {
+    cy.get(':nth-child(1) > app-flight-details-banner > .d-md-block > :nth-child(1) > .container > :nth-child(3) > .col-10 > .flex-shrink-0 > .tc-flight-fare-details > app-price > .price').should('be.visible')
+    cy.get('#outbound-journey-0-BZU > .fare-family-card > .content > .fare-family-card-content > .fare-family-card-btn').click()
+    cy.get(':nth-child(1) > app-flight-details-banner > .d-md-block > :nth-child(1) > .container > :nth-child(3) > .col-10 > .flex-shrink-0 > .tc-flight-fare-details > app-price > .price').should('not.contain', ' $  134  .00 ')
   })
 })
