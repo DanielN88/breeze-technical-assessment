@@ -7,7 +7,7 @@ describe('Homepage selection user flow', () => {
     cy.visit('https://www.flybreeze.com/home')
   })
 
-  it.only('Should test user flow for selecting a flight', () => {
+  it('Should test user flow for selecting a flight', () => {
     cy.get('#ti-origin-select').click().type('utah')
     cy.get('.ng-option').eq(0).click()
     cy.get('.airport').should('have.text', ' Provo Municipal Airport (PVU) ')

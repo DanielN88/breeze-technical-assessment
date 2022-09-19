@@ -29,7 +29,7 @@ describe('Flight details user flow', () => {
     cy.get('#ti-overview-guest-count').should('have.text', ' 2 GUESTS ')
   })
 
-  it.only('Should test selecting a different flight level', () => {
+  it('Should test selecting a different flight level', () => {
     cy.get(':nth-child(1) > app-flight-details-banner > .d-md-block > :nth-child(1) > .container > :nth-child(3) > .col-10 > .flex-shrink-0 > .tc-flight-fare-details > app-price > .price').should('be.visible')
     cy.get('#outbound-journey-0-BZU > .fare-family-card > .content > .fare-family-card-content > .fare-family-card-btn').click()
     cy.get(':nth-child(1) > app-flight-details-banner > .d-md-block > :nth-child(1) > .container > :nth-child(3) > .col-10 > .flex-shrink-0 > .tc-flight-fare-details > app-price > .price').should('not.contain', ' $  134  .00 ')
